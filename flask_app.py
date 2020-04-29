@@ -1,6 +1,8 @@
 # импортируем библиотеки
 from flask import Flask, request
 import logging
+import os
+
 
 port = int(os.environ.get("PORT", 5000))
 # библиотека, которая нам понадобится для работы с JSON
