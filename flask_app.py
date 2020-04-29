@@ -2,6 +2,7 @@
 from flask import Flask, request
 import logging
 
+port = int(os.environ.get("PORT", 5000))
 # библиотека, которая нам понадобится для работы с JSON
 import json
 
@@ -29,6 +30,9 @@ logging.basicConfig(level=logging.INFO)
 # то мы уберем одну подсказку. Как будто что-то меняется :)
 sessionStorage = {}
 
+@app.route('/')
+def kek():
+    return 'kek'
 
 @app.route('/post', methods=['POST'])
 # Функция получает тело запроса и возвращает ответ.
@@ -132,4 +136,4 @@ def get_suggests(user_id):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=port)
